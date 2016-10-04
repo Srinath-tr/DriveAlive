@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.londatiga.android.bluetooth"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS" >
+    </uses-permission>
+ <uses-feature
+        android:name="android.software.device_admin"
+        android:required="true" />
+   
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/Drivealive"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="net.londatiga.android.bluetooth.MainActivity"
+            android:label="@string/Drivealive" >
+        </activity>
+        <activity
+            android:name="net.londatiga.android.bluetooth.DeviceListActivity"
+            android:label="@string/Drivealive" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.londatiga.android.bluetooth.DriveAlive"
+            android:label="@string/title_activity_drivealive" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.londatiga.android.bluetooth.Command"
+            android:label="@string/title_activity_drivealive" >
+              <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.londatiga.android.bluetooth.Sensor"
+            android:label="@string/title_activity_drivealive" >
+        </activity>
+        <activity
+            android:name="net.londatiga.android.bluetooth.MainActivity2"
+            android:label="@string/title_activity_drivealive" >
+        </activity>
+        <service android:name="net.londatiga.android.bluetooth.AEScreenOnOffService">
+			<intent-filter>
+				<action android:name="net.londatiga.android.bluetooth.AEScreenOnOffService" />
+			</intent-filter>
+		</service>
+        <receiver
+            android:name="MyAdminReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/admin" />
+
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+        
+        <service
+            android:name="net.londatiga.android.bluetooth.CallDetectService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+
+        <activity
+            android:name="net.londatiga.android.bluetooth.SendCommand"
+            android:label="@string/title_activity_drivealive" >
+        </activity>
+        <activity
+            android:name="net.londatiga.android.bluetooth.CommandIntimate"
+            android:label="@string/title_activity_drivealive" >
+        </activity>
+        <activity
+            android:name="net.londatiga.android.bluetooth.Gesture"
+            android:label="@string/title_activity_gesture" >
+        </activity>
+    </application>
+
+</manifest>
